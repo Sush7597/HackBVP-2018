@@ -15,11 +15,13 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name=".Notifications"
             android:label="@string/title_notifications" />
         <activity android:name=".bottomNav"></activity>
+        <activity android:name=".PersonalDetails"></activity>
     </application>
 
 </manifest>
