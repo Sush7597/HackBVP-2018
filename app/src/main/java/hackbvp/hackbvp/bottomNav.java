@@ -27,8 +27,9 @@ public class bottomNav extends AppCompatActivity {
                         startActivity(new Intent(getBaseContext() , MainActivity.class));
                         overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
                         break;
-                    case R.id.personal_details:
-
+                    case R.id.Details:
+                        startActivity(new Intent(getBaseContext() , PersonalDetails.class));
+                        overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
                         break;
                     case R.id.notifications:
                         startActivity(new Intent(getBaseContext() , Notifications.class));

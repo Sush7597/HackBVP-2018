@@ -12,16 +12,15 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".Notifications"
             android:label="@string/title_notifications" />
-        <activity android:name=".bottomNav"></activity>
-        <activity android:name=".PersonalDetails"></activity>
+        <activity android:name=".bottomNav"/>
+        <activity android:name=".PersonalDetails"
+            android:label="@string/menu_settings"/>
     </application>
 
 </manifest>

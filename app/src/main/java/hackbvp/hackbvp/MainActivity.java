@@ -1,6 +1,5 @@
 package hackbvp.hackbvp;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -23,6 +22,7 @@ public class MainActivity extends bottomNav {
 
     String Info = null;
     JSONObject pdetails = null;
+    Button button;
     LinearLayout bottonNavBar;
     LinearLayout dynamicContent;
 
@@ -31,18 +31,12 @@ public class MainActivity extends bottomNav {
 
         super.onCreate(savedInstanceState);
         check();
-        //dynamically include the  current activity layout into  baseActivity layout.now all the view of baseactivity is accessible in current activity.
         dynamicContent =  findViewById(R.id.dynamicContent);
-        bottonNavBar= (LinearLayout) findViewById(R.id.bottonNavBar);
+        bottonNavBar=  findViewById(R.id.bottonNavBar);
         View wizard = getLayoutInflater().inflate(R.layout.activity_main,null);
         dynamicContent.addView(wizard);
 
-
-        //get the reference of RadioGroup.
-
-        RadioButton rb=(RadioButton)findViewById(R.id.home);
-
-        // Change the corresponding icon and text color on nav button click.
+        RadioButton rb=findViewById(R.id.home);
 
         rb.setCompoundDrawablesWithIntrinsicBounds( 0,R.drawable.ic_menu_home, 0,0);
         rb.setTextColor(Color.parseColor("#3F51B5"));
@@ -50,7 +44,7 @@ public class MainActivity extends bottomNav {
     }
 
     public void Activate(View view) {
-        Button button = findViewById(R.id.button);
+        button = findViewById(R.id.button);
         final Animation myAnim = AnimationUtils.loadAnimation(this, R.anim.bounce);
         BounceInterpolator interpolator;
         interpolator = new BounceInterpolator();
@@ -62,7 +56,7 @@ public class MainActivity extends bottomNav {
     public void check() {
         Toast.makeText(this, "Save Our Souls!", Toast.LENGTH_SHORT).show();
         SharedPreferences sp = getSharedPreferences("HackBVP", MODE_PRIVATE);
-        Info = sp.getString("Info", "null");
+        Info = sp.getString("details", "null");
         Log.d("Stored Info:", Info);
         try {
             pdetails = new JSONObject(Info);
@@ -70,9 +64,9 @@ public class MainActivity extends bottomNav {
             e.printStackTrace();
         }
         if (Info.equals("null")) {
-            Intent act = new Intent(this, MainActivity.class);
-//            startActivity(act);
-//            overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
+            Intent act = new Intent(this, PersonalDetails.class);
+           startActivity(act);
+           overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
         }
 
 
